@@ -28,7 +28,7 @@ namespace HexaBlast.StageSelectScene
             GoalUIItem item = Instantiate(m_itemPrefab);
             item.SetConfig(ge.Image, gcnt);
             item.SetColor(g.GoalEntity.ColorName);
-            item.transform.parent = m_itemsHolder;
+            item.transform.SetParent(m_itemsHolder);
 
             if (stage.GoalEntities.Count > 2)
             {

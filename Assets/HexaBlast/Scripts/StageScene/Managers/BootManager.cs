@@ -88,7 +88,7 @@ namespace HexaBlast
          });
 
          // set param to child
-         mono.transform.parent = transform;
+         mono.transform.SetParent(transform);
          mono.name = src.GetType().Name;
 
 #if UNITY_EDITOR

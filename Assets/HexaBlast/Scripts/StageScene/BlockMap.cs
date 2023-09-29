@@ -150,7 +150,7 @@ namespace HexaBlast
          {
             //create
             var adding = BlockFactory.Instance.GetBlock(e);
-            adding.transform.parent = m_blocksHolder;
+            adding.transform.SetParent(m_blocksHolder);
             adding.SetIndex(i, j);
             m_blocks[sidx] = adding;
 
@@ -178,7 +178,7 @@ namespace HexaBlast
 
       public void AddChildBlock(Block block)
       {
-         block.transform.parent = m_blocksHolder;
+         block.transform.SetParent(m_blocksHolder);
       }
 
       /// <summary>
@@ -196,14 +196,14 @@ namespace HexaBlast
          {
             GameObject o = new GameObject("Sockets");
             m_socketsHolder = o.transform;
-            m_socketsHolder.parent = transform;
+            m_socketsHolder.transform.SetParent(transform);
             m_socketsHolder.transform.localPosition = new Vector3(0, 0, 1);
          }
          if (!m_blocksHolder)
          {
             GameObject o = new GameObject("Blocks");
             m_blocksHolder = o.transform;
-            m_blocksHolder.parent = transform;
+            m_blocksHolder.transform.SetParent(transform);
             m_blocksHolder.transform.localPosition = new Vector3(0, 0, 0);
          }
       }
@@ -226,7 +226,7 @@ namespace HexaBlast
          if (e != null)
          {
             var adding = BlockFactory.Instance.GetBlock(e);
-            adding.transform.parent = m_blocksHolder;
+            adding.transform.SetParent(m_blocksHolder);
             adding.SetIndex(i, j);
             m_blocks[sidx] = adding;
 
@@ -260,7 +260,7 @@ namespace HexaBlast
 
          // create
          var socket = BlockSocketFactory.Instance.GetBlockSocket(entity);
-         socket.transform.parent = m_socketsHolder;
+         socket.transform.SetParent(m_socketsHolder);
          socket.SetIndex(i, j);
          m_sockets[sidx] = socket;
 

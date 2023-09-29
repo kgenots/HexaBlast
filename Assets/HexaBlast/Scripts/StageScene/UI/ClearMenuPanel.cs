@@ -27,10 +27,5 @@ namespace HexaBlast
          gameObject.SetActive(false);
          StateManager.Instance.ChangeState(StateType.Drop);
       }
-
-      public void Next()
-      {
-         SceneManager.LoadScene("StageSelect");
-      }
    }
 }

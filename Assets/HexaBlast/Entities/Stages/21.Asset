@@ -131,4 +131,4 @@ MonoBehaviour:
   m_goalEntities:
   - GoalEntity: {fileID: 11400000, guid: abef52693d2f59d43b2ca8fb0438d805, type: 2}
     GoalCnt: 10
-  m_nextStage: {fileID: 11400000, guid: 1f0e2435cd1aff54fb6cce7487544222, type: 2}
+  m_nextStage: {fileID: 11400000, guid: ba16097fd33435b4eada516fb5eb5707, type: 2}

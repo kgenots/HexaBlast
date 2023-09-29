@@ -85,7 +85,7 @@ namespace HexaBlast
             var ge = token.GoalEntity;
 
             uiitem.SetConfig(ge.Image, cnt);
-            uiitem.transform.parent = m_goalUiItemHolder;
+            uiitem.transform.SetParent(m_goalUiItemHolder);
             if (m_entity.GoalEntities.Count > 2)
             {
                uiitem.transform.localScale = Vector3.one / (m_entity.GoalEntities.Count / 2f);
