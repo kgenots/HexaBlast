@@ -8,7 +8,7 @@ namespace HexaBlast.MapEditor
 {
    class BlockTool : ToolbarItem
    {
-      const string Dir = "Assets/YGK/Entities/Blocks";
+      const string Dir = "Assets/HexaBlast/Entities/Blocks";
 
       enum Mode
       {

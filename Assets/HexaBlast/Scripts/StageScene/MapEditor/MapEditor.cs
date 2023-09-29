@@ -11,7 +11,7 @@ namespace HexaBlast.MapEditor
    {
       [SerializeField] Toolbar m_toolbar;
 
-      [MenuItem("YGK/Map Editor")]
+      [MenuItem("HexaBlast/Map Editor")]
       static void Init()
       {
          MapEditor window = GetWindow<MapEditor>();

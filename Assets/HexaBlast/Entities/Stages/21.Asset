@@ -121,7 +121,7 @@ MonoBehaviour:
   m_moveCnt: 20
   m_scoreHuddles: 
   m_backgroundTexture: {fileID: 2800000, guid: 50e40b07714c3574f9babb0e1ab1943d, type: 3}
-  m_startTexture: {fileID: 2800000, guid: 1475c74cb51668b41ba29e2333017fe1, type: 3}
+  m_startTexture: {fileID: 2800000, guid: 8a717fad90b877241a28d657d7d5611b, type: 3}
   m_dropBlocks:
   - {fileID: 11400000, guid: b30046abe2740324a8d551121103bd97, type: 2}
   - {fileID: 11400000, guid: ff2e7090d5397894c9da37fc7e0f30b9, type: 2}

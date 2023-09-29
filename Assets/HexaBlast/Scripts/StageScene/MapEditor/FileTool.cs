@@ -9,7 +9,7 @@ namespace HexaBlast.MapEditor
    // todo : set stage file inspector
    class FileTool : ToolbarItem
    {
-      const string Dir = "Assets/YGK/Entities/Stages";
+      const string Dir = "Assets/HexaBlast/Entities/Stages";
       const string FileName = "/0.Asset";
 
       [SerializeField] StageEntity m_selectedStage;
