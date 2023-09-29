@@ -30,7 +30,7 @@ namespace YGK
 
       public override void EnableConfig()
       {
-          StartAnimationAsync().Watch();
+         StartAnimationAsync().Watch();
       }
 
       public override void DisableConfig()
