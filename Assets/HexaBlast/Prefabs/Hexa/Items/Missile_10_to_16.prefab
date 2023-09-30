@@ -70,7 +70,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f4668c387549f9b4abd70463100761d4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 27781f8a5c43b134b83cbef7d98bc184, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -91,7 +91,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2496469330373840955}
   m_Layer: 0
-  m_Name: SlashMissileItem frag (RightUp)
+  m_Name: Missile_10_to_16
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -140,11 +140,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4411451578817220695}
-  - {fileID: 8464053866313173578}
+  - {fileID: 4211254483058146268}
   m_Father: {fileID: 2496469330373840955}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &6969197354421938672
+--- !u!1001 &3436437382885578854
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -213,9 +213,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1776de8a6290948488d1f7f9057949e4, type: 3}
---- !u!4 &8464053866313173578 stripped
+--- !u!4 &4211254483058146268 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1567758670533960634, guid: 1776de8a6290948488d1f7f9057949e4,
     type: 3}
-  m_PrefabInstance: {fileID: 6969197354421938672}
+  m_PrefabInstance: {fileID: 3436437382885578854}
   m_PrefabAsset: {fileID: 0}

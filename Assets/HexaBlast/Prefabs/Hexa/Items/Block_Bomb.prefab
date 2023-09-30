@@ -70,7 +70,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 613d965f11599de4ab2012a54c29562a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c2aade1dcab005a4a88f7b79b10da0d2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -90,8 +90,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2496469330373840955}
+  - component: {fileID: 2586673059761365793}
+  - component: {fileID: 2824630788188093146}
+  - component: {fileID: 8276225948693100485}
   m_Layer: 0
-  m_Name: SlashMissileItem frag (LeftDown )
+  m_Name: Block_Bomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,6 +115,57 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2586673059761365793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2496469330373840954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 987e51109f3457946afbfad659c31949, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_renderer: {fileID: 2718045601147750503}
+  m_loop: 0
+  m_duration: 0.25
+  m_sprites:
+  - {fileID: 21300000, guid: 135ad961e7012f048a351103e04ea269, type: 3}
+  - {fileID: 21300000, guid: 1328d448452ced840852915b1c8c98c8, type: 3}
+  - {fileID: 21300000, guid: c53afbbc9370e3b49ae3765f333420b5, type: 3}
+--- !u!114 &2824630788188093146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2496469330373840954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60115e1d3e339d1439e4cf511a0aa33e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_duration: 0.2
+  m_block: {fileID: 0}
+--- !u!114 &8276225948693100485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2496469330373840954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 204b4491f8c9759468dd1544ac52e378, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_xidx: 0
+  m_yidx: 0
+  m_hp: 0
+  m_entity: {fileID: 0}
+  m_colorLayer: 0
+  m_initialCustomHP: 0
 --- !u!1 &8864410064974438574
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,82 +194,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4411451578817220695}
-  - {fileID: 7468782403610692258}
   m_Father: {fileID: 2496469330373840955}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &8243766765105998104
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1632521083799617301}
-    m_Modifications:
-    - target: {fileID: 1567758670533960628, guid: 1776de8a6290948488d1f7f9057949e4,
-        type: 3}
-      propertyPath: m_Name
-      value: Missile Trail
-      objectReference: {fileID: 0}
-    - target: {fileID: 1567758670533960634, guid: 1776de8a6290948488d1f7f9057949e4,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1567758670533960634, guid: 1776de8a6290948488d1f7f9057949e4,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1567758670533960634, guid: 1776de8a6290948488d1f7f9057949e4,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1567758670533960634, guid: 1776de8a6290948488d1f7f9057949e4,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1567758670533960634, guid: 1776de8a6290948488d1f7f9057949e4,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1567758670533960634, guid: 1776de8a6290948488d1f7f9057949e4,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1567758670533960634, guid: 1776de8a6290948488d1f7f9057949e4,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1567758670533960634, guid: 1776de8a6290948488d1f7f9057949e4,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1567758670533960634, guid: 1776de8a6290948488d1f7f9057949e4,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1567758670533960634, guid: 1776de8a6290948488d1f7f9057949e4,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1567758670533960634, guid: 1776de8a6290948488d1f7f9057949e4,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1776de8a6290948488d1f7f9057949e4, type: 3}
---- !u!4 &7468782403610692258 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1567758670533960634, guid: 1776de8a6290948488d1f7f9057949e4,
-    type: 3}
-  m_PrefabInstance: {fileID: 8243766765105998104}
-  m_PrefabAsset: {fileID: 0}

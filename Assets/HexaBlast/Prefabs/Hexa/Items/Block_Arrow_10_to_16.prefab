@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 6224230559765055444}
   - component: {fileID: 7762005193710952774}
   m_Layer: 0
-  m_Name: Slash Shot Item (LU)
+  m_Name: Block_Arrow_10_to_16
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

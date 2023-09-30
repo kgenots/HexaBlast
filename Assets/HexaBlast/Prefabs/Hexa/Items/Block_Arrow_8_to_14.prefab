@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 4209026182141285559}
   - component: {fileID: 7465490485980506222}
   m_Layer: 0
-  m_Name: Slash Shot Item (RU)
+  m_Name: Block_Arrow_8_to_14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
