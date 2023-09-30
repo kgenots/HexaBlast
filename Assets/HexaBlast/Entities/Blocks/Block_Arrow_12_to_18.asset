@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0bbc9d03d645f8c47b7fbbcedaabe05b, type: 3}
-  m_Name: Yellow
+  m_Name: Block_Arrow_12_to_18
   m_EditorClassIdentifier: 
-  m_prefab: {fileID: 5378423634494223874, guid: b1522b8615476ef42866e28913b2c0a2,
-    type: 3}
+  m_prefab: {fileID: 8276225948693100485, guid: c6f89fc58f6b615499cef44ee80499d9, type: 3}
   m_hp: 1
   m_canDrop: 1
   m_canMatch: 1
@@ -21,7 +20,7 @@ MonoBehaviour:
   m_canAffectOther: 1
   m_canAffected: 0
   m_canClick: 0
-  m_canMerge: 0
+  m_canMerge: 1
   m_isGoal: 0
-  m_isItem: 0
-  m_colorLayer: 2
+  m_isItem: 1
+  m_colorLayer: 0

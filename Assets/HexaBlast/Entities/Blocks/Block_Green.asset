@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0bbc9d03d645f8c47b7fbbcedaabe05b, type: 3}
-  m_Name: Red
+  m_Name: Block_Green
   m_EditorClassIdentifier: 
-  m_prefab: {fileID: 2221489039309139055, guid: fa801981c740d674ca738fc04bf98e57,
-    type: 3}
+  m_prefab: {fileID: 7591632843630888831, guid: 75be1f140591d1542ad2f086865eeae9, type: 3}
   m_hp: 1
   m_canDrop: 1
   m_canMatch: 1
@@ -24,4 +23,4 @@ MonoBehaviour:
   m_canMerge: 0
   m_isGoal: 0
   m_isItem: 0
-  m_colorLayer: 16
+  m_colorLayer: 1

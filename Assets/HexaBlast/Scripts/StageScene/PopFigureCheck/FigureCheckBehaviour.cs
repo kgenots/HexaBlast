@@ -10,9 +10,9 @@ namespace HexaBlast
 
       /// <summary>
       /// Src 기준 팝 모양 검사, 아이템 생성도 관리.
-      /// figureds, items both can be null
+      /// figures, items both can be null
       /// </summary>
-      public abstract bool Check(Block src, HashSet<Block> figureds = null, List<ItemCreateInfo> items = null);
+      public abstract bool Check(Block src, HashSet<Block> figures = null, List<ItemCreateInfo> items = null);
    }
 
    struct ItemCreateInfo

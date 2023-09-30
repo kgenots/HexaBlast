@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0bbc9d03d645f8c47b7fbbcedaabe05b, type: 3}
-  m_Name: SlashMissileItem LeftUp
+  m_Name: Block_Bomb
   m_EditorClassIdentifier: 
-  m_prefab: {fileID: 7762005193710952774, guid: 8f9bb01097783da409253a97640b1303,
-    type: 3}
+  m_prefab: {fileID: 8276225948693100485, guid: 0a0117e3b7a74d148b28db40086bd60d, type: 3}
   m_hp: 1
   m_canDrop: 1
   m_canMatch: 1
@@ -25,3 +24,4 @@ MonoBehaviour:
   m_isGoal: 0
   m_isItem: 1
   m_colorLayer: 0
+  m_renderColorName: 

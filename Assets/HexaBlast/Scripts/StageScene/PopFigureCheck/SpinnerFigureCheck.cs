@@ -8,7 +8,7 @@ namespace HexaBlast
       [SerializeField] BlockEntity m_itemPrefab = null;
 
       // 다이아 좌상우상위, 좌하우하아래, 좌상좌하-2col, 우상우하+2col
-      public override bool Check(Block src, HashSet<Block> figureds = null, List<ItemCreateInfo> items = null)
+      public override bool Check(Block src, HashSet<Block> figures = null, List<ItemCreateInfo> items = null)
       {
          // TODO : use DP algorithm -> performance
          // TODO : list pool
@@ -59,11 +59,11 @@ namespace HexaBlast
          if (fits.Count > 0)
          {
             // add to set
-            if (figureds != null)
+            if (figures != null)
             {
                foreach (Block b in fits)
                {
-                  figureds.Add(b);
+                  figures.Add(b);
                }
             }
 

@@ -10,17 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0bbc9d03d645f8c47b7fbbcedaabe05b, type: 3}
-  m_Name: Blue
+  m_Name: Block_SpinTop
   m_EditorClassIdentifier: 
-  m_prefab: {fileID: 921096910609293093, guid: 6ee46199f4825144296dbe3032c915b8, type: 3}
-  m_hp: 1
+  m_prefab: {fileID: 2202174582232165347, guid: 899518720ffac204da24828b9b4678da, type: 3}
+  m_hp: 2
   m_canDrop: 1
-  m_canMatch: 1
+  m_canMatch: 0
   m_canSwap: 1
-  m_canAffectOther: 1
-  m_canAffected: 0
+  m_canAffectOther: 0
+  m_canAffected: 1
   m_canClick: 0
   m_canMerge: 0
-  m_isGoal: 0
+  m_isGoal: 1
   m_isItem: 0
-  m_colorLayer: 4
+  m_colorLayer: 0
+  m_renderColorName: SpinTop

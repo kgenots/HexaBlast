@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -5913539685995378656}
   - component: {fileID: 3201625245292833094}
   m_Layer: 0
-  m_Name: Block_SpinCoin_HP1
+  m_Name: Block_SpinTop_Hp1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

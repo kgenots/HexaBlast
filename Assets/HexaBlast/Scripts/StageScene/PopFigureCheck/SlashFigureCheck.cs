@@ -12,6 +12,7 @@ namespace HexaBlast
       [SerializeField] int m_itemCondition = 4;
       [SerializeField] BlockEntity m_leftUpItem = null;
       [SerializeField] BlockEntity m_rightUpItem = null;
+      [SerializeField] BlockEntity m_verticalItem = null;
 
       private void OnValidate()
       {
@@ -20,26 +21,28 @@ namespace HexaBlast
       }
 
       // src 좌상, 좌하 끝으로 이동하여 개수 세기
-      public override bool Check(Block src, HashSet<Block> figureds = null, List<ItemCreateInfo> items = null)
+      public override bool Check(Block src, HashSet<Block> figures = null, List<ItemCreateInfo> items = null)
       {
          // todo : use list pool
          List<Block> collect0 = new List<Block>();
          List<Block> collect1 = new List<Block>();
+         List<Block> collect2 = new List<Block>();
 
          // src 좌상->우하
          FigureCheckTool.CollectFromTo(src, HexaDirection.LeftUp, HexaDirection.RightDown, collect0);
 
          // src 좌하->우상
          FigureCheckTool.CollectFromTo(src, HexaDirection.LeftDown, HexaDirection.RightUp, collect1);
+         FigureCheckTool.CollectFromTo(src, HexaDirection.Up, HexaDirection.Down, collect2);
 
          // add to set
-         if (figureds != null)
+         if (figures != null)
          {
             if (collect0.Count >= m_minCondition)
             {
                foreach (Block b in collect0)
                {
-                  figureds.Add(b);
+                  figures.Add(b);
                }
             }
 
@@ -47,7 +50,15 @@ namespace HexaBlast
             {
                foreach (Block b in collect1)
                {
-                  figureds.Add(b);
+                  figures.Add(b);
+               }
+            }
+
+            if (collect2.Count >= m_minCondition)
+            {
+               foreach (Block b in collect2)
+               {
+                  figures.Add(b);
                }
             }
          }
@@ -64,6 +75,7 @@ namespace HexaBlast
                Mergeds = collect0,
             });
          }
+
          if (items != null && collect1.Count >= m_itemCondition)
          {
             items.Add(new ItemCreateInfo()
@@ -73,6 +85,18 @@ namespace HexaBlast
                ItemEntity = m_rightUpItem,
                ColorLayer = src.ColorLayer,
                Mergeds = collect1,
+            });
+         }
+
+         if (items != null && collect2.Count >= m_itemCondition)
+         {
+            items.Add(new ItemCreateInfo()
+            {
+               Row = src.Row,
+               Col = src.Col,
+               ItemEntity = m_verticalItem,
+               ColorLayer = src.ColorLayer,
+               Mergeds = collect2,
             });
          }
 

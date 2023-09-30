@@ -4,6 +4,5 @@ namespace HexaBlast
 {
    class _Template
    {
-
    }
 }
