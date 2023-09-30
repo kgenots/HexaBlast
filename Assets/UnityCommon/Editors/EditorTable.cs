@@ -7,14 +7,8 @@ using UnityEditor;
 using System.Linq;
 using System.Collections;
 
-/// <summary>
-/// 2020-10-20 화 오후 8:38:59, 4.0.30319.42000, YONG-PC, Yong
-/// </summary>
 namespace UnityCommon
 {
-   /// <summary>
-   /// Not UnityEngine.Object type now..
-   /// </summary>
     public partial class EditorTable<TRow>
     {
         IEnumerable<TRow> m_rows;
@@ -22,14 +16,14 @@ namespace UnityCommon
         Func<int, GUIStyle> m_rowStyle;
         Comparison<TRow> m_order;
         GUIStyle m_headerRowStyle;
-      bool m_flexibleSpace;
-      Vector2 m_scroll;
+        bool m_flexibleSpace;
+        Vector2 m_scroll;
 
-      public IEnumerable<TRow> Rows { get => m_rows; set => m_rows = value; }
+        public IEnumerable<TRow> Rows { get => m_rows; set => m_rows = value; }
         public List<ColumnBase> Columns { get => m_cols; set => m_cols = value; }
         public Func<int, GUIStyle> RowStyle { get => m_rowStyle; set => m_rowStyle = value; }
         public Comparison<TRow> Order { get => m_order; set => m_order = value; }
-      public bool FlexibleSpace { get => m_flexibleSpace; set => m_flexibleSpace = value; }
+        public bool FlexibleSpace { get => m_flexibleSpace; set => m_flexibleSpace = value; }
 
         public EditorTable()
         {
@@ -53,21 +47,21 @@ namespace UnityCommon
         public void OnGUI()
         {
          //var m_rows = m_order != null ? m_rows.OrderBy(m_order) : m_rows;
-         int ridx = 0;
+            int ridx = 0;
 
-            SetDefaultStyle();
+                SetDefaultStyle();
 
-         m_scroll = EditorGUILayout.BeginScrollView(m_scroll);
-         // Box
-         GUILayout.BeginVertical();
+            m_scroll = EditorGUILayout.BeginScrollView(m_scroll);
+        
+            GUILayout.BeginVertical();
 
-            // Header
+        
             BeginRow(-1);
             for (int i = 0; i < m_cols.Count; ++i)
             {
                 var c = m_cols[i];
 
-                // header cell
+        
                 BeginCell(c.Width, c.WidthExtand);
                 c.DrawHeader(this);
                 EndCell();
@@ -75,7 +69,7 @@ namespace UnityCommon
             }
             EndRow();
 
-            // Each rows
+    
             ridx = 0;
             try
             {
@@ -87,7 +81,7 @@ namespace UnityCommon
                     {
                         var c = m_cols[i];
 
-                        // cell
+                
                         BeginCell(c.Width, c.WidthExtand);
                         c.DrawColumnCell(row);
                         EndCell();
@@ -100,7 +94,7 @@ namespace UnityCommon
             }
             catch(InvalidOperationException)
             {
-                // when collection modified
+        
             }
 
             GUILayout.EndVertical();
@@ -130,7 +124,7 @@ namespace UnityCommon
                 GUILayout.BeginVertical();
             }
 
-         if (m_flexibleSpace) GUILayout.FlexibleSpace();
+            if (m_flexibleSpace) GUILayout.FlexibleSpace();
         }
 
         void EndCell()

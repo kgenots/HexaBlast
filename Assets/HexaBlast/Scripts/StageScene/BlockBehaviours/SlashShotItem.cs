@@ -24,7 +24,6 @@ namespace HexaBlast
          var nrow = m_block.Row;
          var ncol = m_block.Col;
 
-         // to beg dir
          while (true)
          {
             var delta = HexaDirections.GetDelta(ncol);
@@ -33,7 +32,6 @@ namespace HexaBlast
             if (map.IsIndexOutOfRange(nrow, ncol)) break;
          }
 
-         // to end dir
          while (true)
          {
             var delta = HexaDirections.GetDelta(ncol);
@@ -54,7 +52,6 @@ namespace HexaBlast
          float lengthRCSize = Mathf.Max(map.ColSize, map.RowSize);
          float length = Mathf.Max(map.RowGap, map.ColGap) * lengthRCSize;
 
-         // get end0, end1 (each frag's end position)
          var begPos = m_block.transform.position;
          var delta = HexaDirections.GetDelta(m_block.Col);
          var nr = m_block.Row + delta[(int)m_begDir].row;

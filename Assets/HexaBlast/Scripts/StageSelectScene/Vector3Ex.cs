@@ -4,9 +4,6 @@ namespace HexaBlast
 {
    static class Vector3Extension
    {
-      /// <summary>
-      /// 역수
-      /// </summary>
       public static Vector3 Reciprocal(this Vector3 src)
       {
          src.x = 1 / src.x;

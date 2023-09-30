@@ -21,10 +21,8 @@ namespace HexaBlast.StageSelectScene
                transform.position = dst;
             }
 
-            // open next panel
             trophy?.OnMouseUp();
          }
-         // focus current
          else
          {
             var trophy = TrophyObjects.Instance.GetTrophyObject(nextStage);

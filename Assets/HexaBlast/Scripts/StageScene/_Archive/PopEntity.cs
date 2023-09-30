@@ -50,7 +50,6 @@ namespace HexaBlast
             serializedObject.Update();
             PopEntity target = serializedObject.targetObject as PopEntity;
 
-            // Filter Size
             GUILayout.Label("Filter Size (Row, Col)");
             var rsize = target.m_rowSize;
             var csize = target.m_colSize;
@@ -67,13 +66,11 @@ namespace HexaBlast
             target.m_rowSize = rsize;
             target.m_colSize = csize;
 
-            // StartCondition
             GUILayout.Space(10);
             GUILayout.Label("Start Conditoin");
             target.m_startConditon = (StartCondition)EditorGUILayout.EnumPopup(target.m_startConditon);
             var startCon = target.m_startConditon;
 
-            // Filter
             var height = EditorGUIUtility.singleLineHeight;
 
             GUILayout.Space(10);
@@ -105,7 +102,6 @@ namespace HexaBlast
                target.m_filter = new bool[rsize * csize];
             }
 
-            // Item
             GUILayout.Space(10);
             GUILayout.Label("Item");
             EditorGUILayout.PropertyField(serializedObject.FindProperty("m_item"), new GUIContent());

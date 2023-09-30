@@ -5,9 +5,6 @@ using UnityEditor;
 
 namespace UnityCommon
 {
-    /// <summary>
-    /// Use: Type.Show()
-    /// </summary>
     public class EditorDialogFloat : EditorDialog
     {
         public float Value { get; set; }

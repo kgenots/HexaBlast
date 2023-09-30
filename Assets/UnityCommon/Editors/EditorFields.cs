@@ -5,16 +5,10 @@ using UnityEngine;
 
 namespace UnityCommon
 {
-    /// <summary>
-    /// base class of editor drawing field
-    /// </summary>
     public abstract class Field
     {
         public abstract void DrawField();
 
-        /// <summary>
-        /// Need call submit to apply this changes on drawing 
-        /// </summary>
         public virtual void Submit() { }
     }
 

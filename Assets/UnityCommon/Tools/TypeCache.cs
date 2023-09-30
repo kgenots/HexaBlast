@@ -2,9 +2,6 @@
 using UnityCommon;
 using System;
 
-/// <summary>
-/// 2020-11-09 월 오후 3:39:48, 4.0.30319.42000, YONG-PC, Yong
-/// </summary>
 namespace UnityCommon
 {
     public static class TypeCache<T>

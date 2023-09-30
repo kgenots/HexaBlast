@@ -29,27 +29,20 @@ namespace UnityCommon
         void Show(EditorButton submit, EditorButton cancel, params EditorButton[] buttons);
     }
 
-    /// <summary>
-    /// 서밋, 캔슬 2가지 버튼이 있는 다이얼로그 추상
-    /// </summary>
     public abstract class EditorDialog : IEditorDialog
     {
-        // Defaults
         static EditorButton DefaultSubmit = new EditorButton("Submit", true, false, null);
         static EditorButton DefaultCancel = new EditorButton("Cancel", true, false, null);
-        //static int ButtonsPadding = 12;
         const int IndexOfSubmitButton = 0;
         const int IndexOfCancelButton = 1;
         const string DefaultTitle = "Dialog";
 
-        // Fields
         List<EditorButton> m_buttons;
         EditorDialogWindow m_window;
         bool m_isSubmited;
         bool m_isCanceled;
         bool m_isModal;
 
-        // Properties
         public string TitleText
         {
             get => m_window.titleContent.text;
@@ -102,7 +95,6 @@ namespace UnityCommon
         }
 
 
-        // Constructors
         public EditorDialog() : this(DefaultTitle)
         {
 
@@ -180,10 +172,7 @@ namespace UnityCommon
 
         protected void OnGUIButtons()
         {
-            // Margin
             GUILayout.FlexibleSpace();
-            
-            //EditorGUILayout.Space(ButtonsTopPadding, true);
 
             GUILayout.BeginHorizontal();
 
@@ -195,7 +184,6 @@ namespace UnityCommon
                 {
                     if (GUILayout.Button(btn.Text))
                     {
-                        // Pre
                         if (i == IndexOfSubmitButton)
                         {
                             OnPreSubmit();
@@ -209,7 +197,6 @@ namespace UnityCommon
 
                         try
                         {
-                            // Callback
                             btn.Callback?.Invoke();
                         }
                         catch(Exception e)
@@ -218,13 +205,11 @@ namespace UnityCommon
                             throw e;
                         }
 
-                        // Close
                         if (btn.CloseWindow)
                         {
                             m_window.Close();
                         }
 
-                        // Post
                         if (i == IndexOfSubmitButton)
                         {
                             OnPostSubmit();
@@ -252,9 +237,7 @@ namespace UnityCommon
 
             bool m_isPositionInitialized;
             EditorDialog m_dialog;
-#pragma warning disable CS0649 // EditorDialog.EditorDialogWindow.m_scrollPos' 필드에는 할당되지 않으므로 항상  기본값을 사용합니다.
             Vector2 m_scrollPos;
-#pragma warning restore CS0649 // EditorDialog.EditorDialogWindow.m_scrollPos' 필드에는 할당되지 않으므로 항상  기본값을 사용합니다.
 
             private void OnDisable()
             {
@@ -263,20 +246,16 @@ namespace UnityCommon
 
             protected void OnGUI()
             {
-                // make this not reloadable
-                // cuz action is not serializable
                 if (m_isDisabled)
                 {
                     Close();
                     return;
                 }
 
-                // set position
                 if (!m_isPositionInitialized)
                 {
                     m_isPositionInitialized = true;
 
-                    // set window pos to mouse pos
                     var mousePos = GUIUtility.GUIToScreenPoint(Event.current.mousePosition);
                     mousePos.x -= position.width;
                     position = new Rect(mousePos, position.size);
@@ -284,10 +263,8 @@ namespace UnityCommon
 
                 EditorGUILayout.BeginScrollView(m_scrollPos);
 
-                // abstract panel context
                 m_dialog.OnGUIContext();
 
-                // panel button
                 m_dialog.OnGUIButtons();
 
                 EditorGUILayout.EndScrollView();
@@ -300,9 +277,6 @@ namespace UnityCommon
         }
     }
     
-    /// <summary>
-    /// Classed structure a button represent
-    /// </summary>
     public class EditorButton
     {
         public string Text;

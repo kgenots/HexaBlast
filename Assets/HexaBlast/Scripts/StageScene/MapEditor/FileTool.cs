@@ -6,7 +6,6 @@ using System.Collections.Generic;
 
 namespace HexaBlast.MapEditor
 {
-   // todo : set stage file inspector
    class FileTool : ToolbarItem
    {
       const string Dir = "Assets/HexaBlast/Entities/Stages";
@@ -63,28 +62,23 @@ namespace HexaBlast.MapEditor
 
          if (GUILayout.Button("New Stage"))
          {
-            // create
             StageEntity o = CreateInstance<StageEntity>();
             o.OnValidate();
             o.SetEnableAllSockets(true);
 
-            // save
             string upath = AssetDatabase.GenerateUniqueAssetPath(Dir + FileName);
             AssetDatabase.CreateAsset(o, upath);
 
-            // reload
             o = AssetDatabase.LoadAssetAtPath<StageEntity>(upath);
             SetEntity(o);
 
             m_assets.Add(o);
          }
 
-         // object field
          EditorGUI.BeginChangeCheck();
          StageEntity obj = EditorGUILayout.ObjectField("Map Entity", m_selectedStage, typeof(StageEntity), false) as StageEntity;
          if (EditorGUI.EndChangeCheck() && obj != m_selectedStage)
          {
-            // entity changed
             SetEntity(obj);
          }
 
@@ -101,7 +95,6 @@ namespace HexaBlast.MapEditor
          m_selectedStage = e;
          GlobalVariables.Instance.CurrentStage = e;
 
-         // set scene
          var stage = Stage.Instance;
          stage.LoadStage(e);
       }

@@ -7,9 +7,6 @@ using UnityCommon;
 using System.Collections.Generic;
 using System;
 
-/// <summary>
-/// 2021-06-08 화 오후 4:39:19, 4.0.30319.42000, YONG-PC, Yong
-/// </summary>
 namespace HexaBlast
 {
    [ExecuteAlways]
@@ -19,7 +16,7 @@ namespace HexaBlast
       class ManagerToken
       {
          public MonoBehaviour Mono;
-         public string LastName; // debug
+         public string LastName; // For Debug
          public int StartOrder;
          public int FinalOrder;
       }
@@ -43,7 +40,6 @@ namespace HexaBlast
 
          SortAsStart(true);
 
-         // OnStartManager
          foreach (var token in m_managers)
          {
             var man = (IManager)token.Mono;
@@ -58,7 +54,6 @@ namespace HexaBlast
 
          SortAsFinal(true);
 
-         // OnFinalManager
          foreach (var token in m_managers)
          {
             var man = (IManager)token.Mono;
@@ -67,9 +62,6 @@ namespace HexaBlast
          }
       }
 
-      /// <summary>
-      /// check is registed param manager
-      /// </summary>
       public void VerifyRegistration(IManager src)
       {
          var mono = (MonoBehaviour)src;
@@ -87,20 +79,15 @@ namespace HexaBlast
             Mono = mono,
          });
 
-         // set param to child
          mono.transform.SetParent(transform);
          mono.name = src.GetType().Name;
 
 #if UNITY_EDITOR
-         // ping
          EditorUtility.SetDirty(this);
          EditorGUIUtility.PingObject(mono);
 #endif
       }
 
-      /// <summary>
-      /// Check managers are valid
-      /// </summary>
       void Validation()
       {
          for (int i = 0; i < m_managers.Count; ++i)
@@ -112,7 +99,7 @@ namespace HexaBlast
                --i;
             }
 
-            // record name for debug
+            // Record Name For Debug
             m_managers[i].LastName = m_managers[i].Mono.name;
          }
       }

@@ -22,14 +22,12 @@ namespace HexaBlast
          var nrow = m_block.Row;
          var ncol = m_block.Col;
 
-         // to beg dir
          while (true)
          {
             nrow += 1;
             if (map.IsIndexOutOfRange(nrow, ncol)) break;
          }
 
-         // to end dir
          while (true)
          {
             nrow -= 1;
@@ -48,7 +46,6 @@ namespace HexaBlast
          float lengthRCSize = Mathf.Max(map.ColSize, map.RowSize);
          float length = Mathf.Max(map.RowGap, map.ColGap) * (lengthRCSize + 1);
 
-         // get end0, end1 (each frag's end position)
          var begPos = m_block.transform.position;
          var end0 = begPos + Vector3.up * length;
          var end1 = begPos + Vector3.down * length;

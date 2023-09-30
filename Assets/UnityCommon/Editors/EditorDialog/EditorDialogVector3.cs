@@ -5,9 +5,6 @@ using UnityEditor;
 
 namespace UnityCommon
 {
-    /// <summary>
-    /// Use: Type.Show()
-    /// </summary>
     public class EditorDialogVector3 : EditorDialog
     {
         public Vector3 Value;

@@ -41,7 +41,6 @@ namespace HexaBlast
          int nextRow;
          int nextCol;
 
-         // move to from
          while (true)
          {
             var delta = HexaDirections.GetDelta(currCol);
@@ -59,9 +58,6 @@ namespace HexaBlast
          }
       }
 
-      /// <summary>
-      /// Line Collect
-      /// </summary>
       public static void CollectFromTo(Block src, HexaDirection from, HexaDirection to, List<Block> collected)
       {
          var map = BlockMap.Instance;
@@ -70,7 +66,6 @@ namespace HexaBlast
          int nextRow;
          int nextCol;
 
-         // move to from
          while (true)
          {
             var delta = HexaDirections.GetDelta(currCol);
@@ -86,7 +81,6 @@ namespace HexaBlast
             currCol = nextCol;
          }
 
-         // collect from ~ to
          collected.Clear();
          collected.Add(map.GetBlock(currRow, currCol));
          while (true)

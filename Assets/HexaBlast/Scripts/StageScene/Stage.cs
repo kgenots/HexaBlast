@@ -15,7 +15,6 @@ namespace HexaBlast
       [SerializeField] int m_remainMove = 0;
       [SerializeField] int m_score = 0;
 
-      // ui
       [SerializeField] TextMeshProUGUI m_scoreCntText;
       [SerializeField] TextMeshProUGUI m_moveCntText;
       [SerializeField] RectTransform m_goalImageTransform;
@@ -66,7 +65,6 @@ namespace HexaBlast
 
       void CreateGoalItems()
       {
-         // clear prev ui element
          foreach (var item in m_goalUiItemHolder.GetComponentsInChildren<GoalUIItem>())
          {
             var copy = item;
@@ -77,7 +75,6 @@ namespace HexaBlast
          }
          m_reaminGoals.Clear();
 
-         // create ui elements and set remain goals
          foreach (var token in m_entity.GoalEntities)
          {
             var uiitem = Instantiate(m_goalUiItemPrefab);
@@ -117,22 +114,15 @@ namespace HexaBlast
          return res;
       }
 
-      /// <summary>
-      /// Not load BlockMap
-      /// </summary>
-      /// <param name="e"></param>
       public void LoadStage(StageEntity e)
       {
          m_entity = e;
 
-         // set fields
          m_remainMove = e.MoveCnt;
          m_score = 0;
 
-         // goal items
          CreateGoalItems();
 
-         // update UI
          AddRemainMoveDelta(0);
          AddScore(0);
          m_backgroundImage.texture = e.BackgroundTexture;

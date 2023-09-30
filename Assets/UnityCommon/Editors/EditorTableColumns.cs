@@ -4,9 +4,6 @@ using System;
 using UnityEditor;
 using UnityEngine;
 
-/// <summary>
-/// 2020-12-07 월 오후 3:45:24, 4.0.30319.42000, YONG-PC, Yong
-/// </summary>
 namespace UnityCommon
 {
    public partial class EditorTable<TRow>

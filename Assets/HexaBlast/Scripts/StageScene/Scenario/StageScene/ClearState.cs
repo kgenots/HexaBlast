@@ -53,7 +53,6 @@ namespace HexaBlast.Scenario.StageScene
 
       async void MoveNextClear()
       {
-         // 이미지 이펙트
          if (m_nextClearStep == ClearStep.ShowImage)
          {
             m_nextClearStep = ClearStep.ClearItems;
@@ -61,28 +60,22 @@ namespace HexaBlast.Scenario.StageScene
             await ShowTopBotImageAnimation(m_levelClearImage);
             MoveNextClear();
          }
-         // 아이템 청소
          else if (m_nextClearStep == ClearStep.ClearItems)
          {
             ClearItems();
          }
-         // 토이 파티
          else if (m_nextClearStep == ClearStep.ToyParty)
          {
             m_nextClearStep = ClearStep.clearMenu;
 
             await StartToyParty();
          }
-         // 클리어 메뉴
          else if (m_nextClearStep == ClearStep.clearMenu)
          {
             m_clearMenuPanel.Show();
          }
       }
 
-      /// <summary>
-      /// 컨티뉴 버튼이 콜함
-      /// </summary>
       public void NeverClearStage()
       {
          m_isNeverClearStage = true;
@@ -94,7 +87,6 @@ namespace HexaBlast.Scenario.StageScene
          float approachSec = 0.5f;
          float fallbackSec = 0.3f;
 
-         // 클리어 이미지
          src.gameObject.SetActive(true);
 
          var screenToWorldFactor = CameraTool.ScreenToWorldFactor(m_cam);
@@ -107,7 +99,6 @@ namespace HexaBlast.Scenario.StageScene
          var approachAni = new Simation(beg, end, src.transform, approachSec);
          approachAni.Start();
 
-         // wait input or dur
          await InputTool.WaitInputToClick(m_screenImageShowDurSec + approachSec);
          if (!approachAni.AsyncTask.IsCompleted)
             approachAni.Cancel();
@@ -133,7 +124,6 @@ namespace HexaBlast.Scenario.StageScene
          var map = BlockMap.Instance;
          bool isItemExist = false;
 
-         // 아이템 동시 파괴
          StateDatas.Instance.AsyncronouseItemAnimation = true;
 
          for (int i = 0; i < map.RowSize; ++i)
@@ -165,7 +155,6 @@ namespace HexaBlast.Scenario.StageScene
 
       async Task StartToyParty()
       {
-         // 남은 블럭 확인
          var map = BlockMap.Instance;
          int remainMove = Stage.Instance.RemainMove;
          List<Block> blocks = new List<Block>();
@@ -182,28 +171,22 @@ namespace HexaBlast.Scenario.StageScene
          int changeCnt = Stage.Instance.RemainMove;
          changeCnt = Mathf.Min(blocks.Count, remainMove);
 
-         // 토이파티 취소
          if (changeCnt <= 0)
          {
             MoveNextClear();
             return;
          }
 
-         // 토이파티 이미지
          await ShowTopBotImageAnimation(m_toyPartyImage);
 
-         // 파티 포탑 이미지
          var beg = m_toyCannonTrans.position;
          var end = m_toyCannonDstTrans.position;
          await new Simation(beg, end, m_toyCannonTrans, 1.0f).StartAsync();
 
-         // 아이템 변환
          await StartToyPartyItemChange(blocks, changeCnt);
 
-         // 포탑 복귀
          await new Simation(end, beg, m_toyCannonTrans, 0.5f).StartAsync();
 
-         // 팝모드
          StateManager.Instance.ChangeState(StateType.Pop);
       }
 
@@ -211,7 +194,6 @@ namespace HexaBlast.Scenario.StageScene
       {
          var map = BlockMap.Instance;
 
-         // 아이템 변환 블럭 선택
          float speedMulti = 1;
          while (changeCnt-- > 0)
          {
@@ -220,26 +202,21 @@ namespace HexaBlast.Scenario.StageScene
             var row = block.Row;
             var col = block.Col;
             var color = block.ColorLayer;
-            if (color == ColorLayer.None) color = ColorLayer.Purple; // todo : random
             blocks.RemoveAt(idx);
 
-            // 변환 애니메이션
             Stage.Instance.AddRemainMoveDelta(-1);
             await ToyPartyItemChangeAnimation(block, speedMulti);
             speedMulti *= 1.10f;
 
-            // 삭제
             map.RemoveBlock(block);
             BlockFactory.Instance.RemoveBlock(ref block);
 
-            // 생성
             var item = BlockFactory.Instance.GetBlock(GetNextToyPartyItem());
             map.AddChildBlock(item);
             map.SetBlock(row, col, item);
             map.RePositionBlock(item);
             item.SetColorLayer(color);
 
-            // 등록
             StateDatas.Instance.AbsolutePopBlocks.Add(item);
          }
       }
@@ -249,7 +226,6 @@ namespace HexaBlast.Scenario.StageScene
          var shot = Instantiate(m_toyPartyCannonShot);
          shot.GetComponent<TrailRenderer>().startColor = ColorManager.Instance.GetColor(dst.ColorLayer);
 
-         // cannon missile to dst
          var beg = m_toyCannonTrans.position;
 
          await new Simation(beg, dst.transform.position, shot.transform, m_toyPartyCannonShotSec / speedMulti).StartAsync();

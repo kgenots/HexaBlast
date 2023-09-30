@@ -4,14 +4,14 @@ using System.Collections.Generic;
 
 namespace HexaBlast
 {
-   // TODO : block Create, Remove and using factory thing to change use this
    partial class BlockMap : MonoBehaviourSingleton<BlockMap>
    {
       [SerializeField] StageEntity m_entity;
       [SerializeField] Transform m_socketsHolder;
       [SerializeField] Transform m_blocksHolder;
       [SerializeField] BlockSocket[] m_sockets;
-      [SerializeField] Block[] m_blocks; // block can be null
+      [SerializeField] Block[] m_blocks;
+
       List<BlockSocket> m_spawnSockets = new List<BlockSocket>();
 
       public float RowGap => m_entity.RowGap;
@@ -27,12 +27,10 @@ namespace HexaBlast
       {
          if (!m_entity) return;
 
-         // clear
          Execute.DestroyGameObject(ref m_socketsHolder);
          Execute.DestroyGameObject(ref m_blocksHolder);
          ValidateHolder();
 
-         // create sockets
          m_sockets = new BlockSocket[RowSize * ColSize];
          for (int i = 0; i < RowSize; ++i)
          {
@@ -42,7 +40,6 @@ namespace HexaBlast
             }
          }
 
-         // create blocks
          m_blocks = new Block[RowSize * ColSize];
          for (int i = 0; i < RowSize; ++i)
          {
@@ -52,12 +49,10 @@ namespace HexaBlast
             }
          }
 
-         // allign self position
          float ycenter = (RowSize - 1) * RowGap / 2f;
          float xcenter = (ColSize - 1) * ColGap / 2f;
          transform.position = new Vector3(-xcenter, ycenter, transform.position.z);
 
-         // list spawnSockets
          m_spawnSockets.Clear();
          foreach (var socket in m_sockets)
          {
@@ -108,9 +103,6 @@ namespace HexaBlast
          return m_sockets[sidx];
       }
 
-      /// <summary>
-      /// Reload Blocks
-      /// </summary>
       public void SetEntity(StageEntity e)
       {
          m_entity = e;
@@ -143,22 +135,18 @@ namespace HexaBlast
       {
          int sidx = SerialIndex(i, j);
 
-         // clear prev block
          BlockFactory.Instance.RemoveBlock(ref m_blocks[sidx]);
 
          if (e != null)
          {
-            //create
             var adding = BlockFactory.Instance.GetBlock(e);
             adding.transform.SetParent(m_blocksHolder);
             adding.SetIndex(i, j);
             m_blocks[sidx] = adding;
 
-            // position
             var (x, y) = IndexToLocalPos(i, j);
             adding.transform.localPosition = new Vector3(x, y, 0);
 
-            // set active
             adding.gameObject.SetActive(true);
          }
       }
@@ -181,9 +169,6 @@ namespace HexaBlast
          block.transform.SetParent(m_blocksHolder);
       }
 
-      /// <summary>
-      /// Remove from grid
-      /// </summary>
       public void RemoveBlock(Block b)
       {
          int sidx = SerialIndex(b.Row, b.Col);
@@ -210,7 +195,6 @@ namespace HexaBlast
 
       public void RePositionBlock(Block b)
       {
-         // position
          var (x, y) = IndexToLocalPos(b.Row, b.Col);
          b.transform.localPosition = new Vector3(x, y, 0);
       }
@@ -219,10 +203,8 @@ namespace HexaBlast
       {
          int sidx = SerialIndex(i, j);
 
-         // clear prev block
          BlockFactory.Instance.RemoveBlock(ref m_blocks[sidx]);
 
-         // create
          if (e != null)
          {
             var adding = BlockFactory.Instance.GetBlock(e);
@@ -230,20 +212,16 @@ namespace HexaBlast
             adding.SetIndex(i, j);
             m_blocks[sidx] = adding;
 
-            // position
             var (x, y) = IndexToLocalPos(i, j);
             adding.transform.localPosition = new Vector3(x, y, 0);
 
-            // set active
             adding.gameObject.SetActive(IsIndexEnabled(i, j));
 
 
-            // item color setting
             if (e.IsItem)
             {
                adding.SetColorLayer(m_entity.GetItemColor(i, j));
             }
-            // render color
             if (e.RenderColorName != null && e.RenderColorName.Length > 0)
             {
                adding.SetRenderColorByName(e.RenderColorName);
@@ -255,23 +233,18 @@ namespace HexaBlast
       {
          int sidx = SerialIndex(i, j);
 
-         // clear prev socket
          BlockSocketFactory.Instance.RemoveBlockSocket(ref m_sockets[sidx]);
 
-         // create
          var socket = BlockSocketFactory.Instance.GetBlockSocket(entity);
          socket.transform.SetParent(m_socketsHolder);
          socket.SetIndex(i, j);
          m_sockets[sidx] = socket;
 
-         // position
          var (x, y) = IndexToLocalPos(i, j);
          socket.transform.localPosition = new Vector3(x, y, 0);
 
-         // color
          socket.SetColor(socket.Entity.ColorName);
 
-         // set active
          socket.gameObject.SetActive(IsIndexEnabled(i, j));
       }
 

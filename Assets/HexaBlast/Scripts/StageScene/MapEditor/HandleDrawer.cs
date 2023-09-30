@@ -37,7 +37,6 @@ namespace HexaBlast.MapEditor
       {
          var map = BlockMap.Instance;
 
-         // Draw Handle Gizmo
          if (m_mode == 0)
          {
             Handles.color = Color.green;
@@ -60,7 +59,6 @@ namespace HexaBlast.MapEditor
          Handles.zTest = UnityEngine.Rendering.CompareFunction.Always;
          Handles.DrawWireCube(handlePos, size);
 
-         // (must repaint to update draws)
          view.Repaint();
       }
    }

@@ -5,7 +5,6 @@ using UnityCommon;
 
 namespace HexaBlast.MapEditor
 {
-   // todo : create new socket, list/select socket
    class SocketTool : ToolbarItem
    {
       enum Mode
@@ -48,7 +47,6 @@ namespace HexaBlast.MapEditor
          {
             m_replaceEntity = EditorGUILayout.ObjectField("Replace Entity", m_replaceEntity, typeof(SocketEntity), false) as SocketEntity;
 
-            // inspect replace entity count
             int cnt = 0;
             foreach(var s in m_map.GetSocketEnumerable())
             {
@@ -59,7 +57,6 @@ namespace HexaBlast.MapEditor
             }
 
             EditorGUILayout.LabelField("Replace Entity Count : " + cnt.ToString());
-            m_window?.Repaint(); // update window
 
          }
          else if (m_mode == Mode.Enable)
@@ -93,12 +90,10 @@ namespace HexaBlast.MapEditor
 
       void SceneViewRaycast(SceneView view)
       {
-         // screen to index
          Vector3 wpos = SceneViewRaycaster.ScreenPointToWorld(view);
          var (i, j) = m_map.WorldPosToIndex(wpos.x, wpos.y);
          if (m_map.IsIndexOutOfRange(i, j)) return;
 
-         // mouse drag or click
          var e = Event.current;
          if ((e.type == EventType.MouseDown || e.type == EventType.MouseDrag) && e.button == 0)
          {

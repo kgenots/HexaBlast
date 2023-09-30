@@ -2,7 +2,6 @@
 
 namespace HexaBlast
 {
-   // bind to camera to cache datas?
    static class CameraTool
    {
       public static Vector3 ScreenToWorldFactor(Camera cam)
@@ -12,7 +11,6 @@ namespace HexaBlast
          worldSize.y /= (float)cam.pixelHeight;
          worldSize.z /= (float)cam.nearClipPlane;
 
-         //worldSize.Scale(new Vector3(cam.pixelWidth, cam.pixelHeight, cam.nearClipPlane).Reciprocal());
          return worldSize;
       }
 

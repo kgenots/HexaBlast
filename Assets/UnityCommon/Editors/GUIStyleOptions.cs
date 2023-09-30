@@ -5,14 +5,8 @@ using System;
 using System.Collections.Generic;
 using UnityEditor;
 
-/// <summary>
-/// 2020-12-22
-/// </summary>
 namespace UnityCommon
 {
-    /// <summary>
-    /// This is addtional option of <see cref="GUIStyle"/> can find at <see cref="GUI.skin"/> or <see cref="EditorStyles"/>
-    /// </summary>
     public abstract class GUIStyleOption
     {
         internal abstract GUIStyle Apply(GUIStyle src);
@@ -92,9 +86,6 @@ namespace UnityCommon
             return new CloneOption(style);
         }
 
-        /// <summary>
-        /// if not fixed width = 0
-        /// </summary>
         public static GUIStyleOption Width(float width)
         {
             return new WidthOption(width);
@@ -104,10 +95,6 @@ namespace UnityCommon
         {
             return new TextBoldOption();
         }
-
-        // ----------------------------------------------------------------------
-        // Option Classes
-        // ----------------------------------------------------------------------
 
         class TextAlignOption : GUIStyleOption
         {
@@ -307,9 +294,9 @@ namespace UnityCommon
         {
             float m_width;
 
-            /// <summary>
-            /// if non fixed width = 0
-            /// </summary>
+    
+    
+    
             public WidthOption(float width)
             {
                 m_width = width;

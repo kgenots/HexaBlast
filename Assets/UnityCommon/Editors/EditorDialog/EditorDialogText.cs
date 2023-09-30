@@ -6,9 +6,6 @@ using UnityEditor;
 
 namespace UnityCommon
 {
-    /// <summary>
-    /// Use: Type.Show()
-    /// </summary>
     public class EditorDialogText : EditorDialog
     {
         public string Label;

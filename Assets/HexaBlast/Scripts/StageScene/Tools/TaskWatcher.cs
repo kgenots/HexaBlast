@@ -18,7 +18,6 @@ namespace HexaBlast
          {
             var task = node.Value;
 
-            // Log Exception 
             if (task.IsFaulted)
             {
                Debug.LogException(task.Exception);
@@ -42,9 +41,6 @@ namespace HexaBlast
 
    static class TaskEx
    {
-      /// <summary>
-      /// Dismiss Task and watch fault
-      /// </summary>
       public static void Watch(this Task src)
       {
          TaskWatcher.Instance.WatchTask(src);

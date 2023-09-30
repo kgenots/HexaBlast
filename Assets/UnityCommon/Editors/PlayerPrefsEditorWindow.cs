@@ -4,10 +4,6 @@ using UnityEngine;
 using UnityEditor;
 using System.Collections;
 
-// todo : 
-// editorPref sessionstate, playerpref 3개 종류 확장 수정
-// pref (editor/seesion) wraping하여 등록된것 추적 관리 (또는 파일 직접 뜯어봄)
-
 public class PlayerPrefsEditorWindow : EditorWindow
 {
     

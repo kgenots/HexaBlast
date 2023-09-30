@@ -1,13 +1,9 @@
 ﻿using UnityEngine;
 using UnityCommon;
 
-/// <summary>
-/// 2021-07-06 화 오후 7:52:37, 4.0.30319.42000, YONG-PC, Yong
-/// </summary>
 namespace HexaBlast
 {
-   public abstract class Manager<TDerived> : MonoBehaviourSingleton<TDerived>, IManager
-     where TDerived : Manager<TDerived>
+   public abstract class Manager<TDerived> : MonoBehaviourSingleton<TDerived>, IManager where TDerived : Manager<TDerived>
    {
       private void Reset()
       {

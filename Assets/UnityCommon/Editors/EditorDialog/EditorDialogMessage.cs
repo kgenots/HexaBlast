@@ -6,10 +6,6 @@ using UnityEditor;
 
 namespace UnityCommon
 {
-    /// <summary>
-    /// 버튼 한 개 메시지 다이얼로그
-    /// Use: Type.Show()
-    /// </summary>
     public class EditorDialogMessage : EditorDialog
     {
         public string Message;

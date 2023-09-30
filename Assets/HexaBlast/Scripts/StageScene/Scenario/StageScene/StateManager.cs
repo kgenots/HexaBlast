@@ -5,11 +5,6 @@ using UnityEngine;
 
 namespace HexaBlast.Scenario.StageScene
 {
-   /*
-    * 상태 전환은 이 매니저를 통해서 한다
-    * 전환 조건 및 다음 상태는 각 상태가 관리한다
-    * */
-
    public class StateManager : UnityCommon.MonoBehaviourSingleton<StateManager>
    {
       [SerializeField] List<Token> m_list;
@@ -26,7 +21,6 @@ namespace HexaBlast.Scenario.StageScene
 
       public void Start()
       {
-         // init all
          foreach (var token in m_list)
          {
             token.State.Initialize();
@@ -37,13 +31,11 @@ namespace HexaBlast.Scenario.StageScene
 
       public void ChangeState(StateType state)
       {
-         // disable current
          if (m_currState != null)
          {
             m_currState.enabled = false;
          }
 
-         // enable next
          foreach (var t in m_list)
          {
             if (t.Type == state)

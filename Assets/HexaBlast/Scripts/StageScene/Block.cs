@@ -14,9 +14,6 @@ namespace HexaBlast
       public BlockEntity Entity => m_entity;
       public ColorLayer ColorLayer => m_colorLayer;
 
-      /// <summary>
-      /// Initialize block
-      /// </summary>
       public void SetEntity(BlockEntity src)
       {
          m_entity = src;
@@ -33,10 +30,6 @@ namespace HexaBlast
          m_colorLayer = layer;
       }
 
-      /// <summary>
-      /// Not set layer (layer is used for matching)
-      /// </summary>
-      /// <param name="name"></param>
       public void SetRenderColorByName(string name)
       {
          GetComponentInChildren<SpriteRenderer>().color = ColorManager.Instance.GetColorByString(name);
