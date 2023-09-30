@@ -5,9 +5,6 @@ using UnityEngine;
 
 namespace HexaBlast
 {
-   /// <summary>
-   /// HP에 따라 스프라이트 전환
-   /// </summary>
    class HPSpriteSwitcher : MonoBehaviour, IHPResponse
    {
       [SerializeField] List<SpriteAndCondition> m_steps;

@@ -20,7 +20,6 @@ namespace HexaBlast
          var row = m_block.Row;
          var col = m_block.Col;
 
-         // around
          foreach (var del in HexaDirections.GetDelta(col))
          {
             var nrow = row + del.row;

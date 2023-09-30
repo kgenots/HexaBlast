@@ -3,9 +3,6 @@ using UnityEngine;
 
 namespace HexaBlast
 {
-   /// <summary>
-   /// 스코어 보드에 날아가는 골 애니메이션 수행
-   /// </summary>
    class ScoreboardGoalBehaviour : MonoBehaviour, IHPResponse
    {
       [SerializeField] GoalEntity m_goalEntity;

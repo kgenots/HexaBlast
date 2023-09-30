@@ -3,9 +3,6 @@ using UnityEngine;
 
 namespace HexaBlast
 {
-   /// <summary>
-   /// 스프라이트 렌더 설정
-   /// </summary>
    abstract class SpriteRenderConfiger : MonoBehaviour
    {
       public abstract void EnableConfig();

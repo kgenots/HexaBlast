@@ -3,9 +3,6 @@ using UnityEngine;
 
 namespace HexaBlast
 {
-   /// <summary>
-   /// 시간에 따른 스프라이트 변화 애니메이션
-   /// </summary>
    class SpriteRenderAnimation : SpriteRenderConfiger
    {
       [SerializeField] SpriteRenderer m_renderer;

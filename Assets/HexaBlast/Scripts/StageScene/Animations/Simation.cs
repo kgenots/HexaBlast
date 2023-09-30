@@ -6,9 +6,6 @@ using UnityEngine;
 
 namespace HexaBlast
 {
-   /// <summary>
-   /// 심플 애니메이션의 줄임으로 간단한 이동 애니메이션을 추상화해서 사용할 수 있도록 지원한다. 
-   /// </summary>
    class Simation
    {
       public static AnimationCurve LinearCurve = AnimationCurve.Linear(0, 0, 1, 1);
