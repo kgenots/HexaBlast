@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace HexaBlast
 {
-   class StageSelectSceneUIManager : UnityCommon.MonoBehaviourSingletone<StageSelectSceneUIManager>
+   class StageSelectSceneUIManager : UnityCommon.MonoBehaviourSingleton<StageSelectSceneUIManager>
    {
       [SerializeField] UIPanel m_stageInfoPanel;
       [SerializeField] UIPanel m_quitCheckPanel;

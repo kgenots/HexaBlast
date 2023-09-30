@@ -13,7 +13,7 @@ using System;
 namespace HexaBlast
 {
    [ExecuteAlways]
-   partial class BootManager : MonoBehaviourSingletone<BootManager>
+   partial class BootManager : MonoBehaviourSingleton<BootManager>
    {
       [Serializable]
       class ManagerToken

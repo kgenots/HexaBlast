@@ -6,7 +6,7 @@ using UnityCommon;
 /// </summary>
 namespace HexaBlast
 {
-   public abstract class Manager<TDerived> : MonoBehaviourSingletone<TDerived>, IManager
+   public abstract class Manager<TDerived> : MonoBehaviourSingleton<TDerived>, IManager
      where TDerived : Manager<TDerived>
    {
       private void Reset()

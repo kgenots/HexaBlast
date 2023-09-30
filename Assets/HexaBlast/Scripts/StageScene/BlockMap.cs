@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace HexaBlast
 {
    // TODO : block Create, Remove and using factory thing to change use this
-   partial class BlockMap : MonoBehaviourSingletone<BlockMap>
+   partial class BlockMap : MonoBehaviourSingleton<BlockMap>
    {
       [SerializeField] StageEntity m_entity;
       [SerializeField] Transform m_socketsHolder;

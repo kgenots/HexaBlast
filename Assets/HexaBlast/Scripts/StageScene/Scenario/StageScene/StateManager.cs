@@ -10,7 +10,7 @@ namespace HexaBlast.Scenario.StageScene
     * 전환 조건 및 다음 상태는 각 상태가 관리한다
     * */
 
-   public class StateManager : UnityCommon.MonoBehaviourSingletone<StateManager>
+   public class StateManager : UnityCommon.MonoBehaviourSingleton<StateManager>
    {
       [SerializeField] List<Token> m_list;
       [SerializeField] State m_currState = null;

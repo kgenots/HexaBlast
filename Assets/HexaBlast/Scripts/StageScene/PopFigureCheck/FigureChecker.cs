@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace HexaBlast
 {
-   class FigureChecker : UnityCommon.MonoBehaviourSingletone<FigureChecker>
+   class FigureChecker : UnityCommon.MonoBehaviourSingleton<FigureChecker>
    {
       // 순서가 아이템 생성 우선순위
       [SerializeField] FigureCheckBehaviour[] m_popCheckers;

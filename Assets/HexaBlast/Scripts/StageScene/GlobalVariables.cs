@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace HexaBlast
 {
-   class GlobalVariables : UnityCommon.MonoBehaviourSingletone<GlobalVariables>
+   class GlobalVariables : UnityCommon.MonoBehaviourSingleton<GlobalVariables>
    {
       public StageEntity CurrentStage;
 

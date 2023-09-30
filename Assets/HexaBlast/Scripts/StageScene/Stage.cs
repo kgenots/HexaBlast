@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace HexaBlast
 {
    [ExecuteAlways]
-   class Stage : MonoBehaviourSingletone<Stage>
+   class Stage : MonoBehaviourSingleton<Stage>
    {
       [SerializeField] StageEntity m_entity;
       [SerializeField] int m_remainMove = 0;

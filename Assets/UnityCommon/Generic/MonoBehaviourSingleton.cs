@@ -12,12 +12,12 @@ namespace UnityCommon
    /// 싱글톤 제공 MonoBehaviour 베이스
    /// </summary>
    /// <typeparam name="TDerived"></typeparam>
-   public class MonoBehaviourSingletone<TDerived> : MonoBehaviour where TDerived : MonoBehaviour
+   public class MonoBehaviourSingleton<TDerived> : MonoBehaviour where TDerived : MonoBehaviour
    {
       protected static object m_mutex;
       protected static TDerived m_instance;
 
-      static MonoBehaviourSingletone()
+      static MonoBehaviourSingleton()
       {
          m_mutex = new object();
       }

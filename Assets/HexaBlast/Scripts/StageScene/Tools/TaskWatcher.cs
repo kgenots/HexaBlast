@@ -5,7 +5,7 @@ using UnityEngine;
 namespace HexaBlast
 {
    [ExecuteAlways]
-   class TaskWatcher : UnityCommon.MonoBehaviourSingletone<TaskWatcher>
+   class TaskWatcher : UnityCommon.MonoBehaviourSingleton<TaskWatcher>
    {
       LinkedList<Task> m_list = new LinkedList<Task>();
 

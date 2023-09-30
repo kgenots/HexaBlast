@@ -2,7 +2,7 @@
 
 namespace HexaBlast.StageSelectScene
 {
-   class TrophyObjects : UnityCommon.MonoBehaviourSingletone<TrophyObjects>
+   class TrophyObjects : UnityCommon.MonoBehaviourSingleton<TrophyObjects>
    {
       public TrophyObject GetTrophyObject(StageEntity stage)
       {

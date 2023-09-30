@@ -5,7 +5,7 @@ using UnityCommon;
 
 namespace HexaBlast
 {
-   class BlockFactory : MonoBehaviourSingletone<BlockFactory>
+   class BlockFactory : MonoBehaviourSingleton<BlockFactory>
    {
       [SerializeField] BlockEntity m_default;
 

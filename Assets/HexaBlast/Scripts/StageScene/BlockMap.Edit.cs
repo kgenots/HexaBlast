@@ -4,7 +4,7 @@ using System;
 
 namespace HexaBlast
 {
-   partial class BlockMap : MonoBehaviourSingletone<BlockMap>
+   partial class BlockMap : MonoBehaviourSingleton<BlockMap>
    {
       /**
        * 에디터 전용

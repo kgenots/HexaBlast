@@ -11,12 +11,12 @@ namespace UnityCommon
    /// <summary>
    /// 싱글톤 제공
    /// </summary>
-   public class ObjectSingletone<TDerived> where TDerived : class, new()
+   public class ObjectSingleton<TDerived> where TDerived : class, new()
    {
       protected static object m_mutex;
       protected static TDerived m_instance;
 
-      static ObjectSingletone()
+      static ObjectSingleton()
       {
          m_mutex = new object();
       }

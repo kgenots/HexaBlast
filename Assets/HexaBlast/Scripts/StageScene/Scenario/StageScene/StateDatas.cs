@@ -4,7 +4,7 @@ using HexaBlast.Scenario.StageScene;
 
 namespace HexaBlast
 {
-   class StateDatas : UnityCommon.ObjectSingletone<StateDatas>
+   class StateDatas : UnityCommon.ObjectSingleton<StateDatas>
    {
       // POP STATE DATAS ///////////////////////////////////////////
 

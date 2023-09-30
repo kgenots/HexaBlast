@@ -5,7 +5,7 @@ using UnityCommon;
 
 namespace HexaBlast
 {
-   class BlockSocketFactory : MonoBehaviourSingletone<BlockSocketFactory>
+   class BlockSocketFactory : MonoBehaviourSingleton<BlockSocketFactory>
    {
       [SerializeField] SocketEntity m_default;
 

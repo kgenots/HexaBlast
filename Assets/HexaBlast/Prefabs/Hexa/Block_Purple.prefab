@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2496469330373840955}
-  - component: {fileID: -9073631764490652979}
-  - component: {fileID: 921096910609293093}
+  - component: {fileID: -3580885576047104114}
+  - component: {fileID: 6060576594850687851}
   m_Layer: 0
-  m_Name: BlueBlock
+  m_Name: Block_Purple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33,7 +33,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-9073631764490652979
+--- !u!114 &-3580885576047104114
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -52,7 +52,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 135ad961e7012f048a351103e04ea269, type: 3}
   - {fileID: 21300000, guid: 1328d448452ced840852915b1c8c98c8, type: 3}
   - {fileID: 21300000, guid: c53afbbc9370e3b49ae3765f333420b5, type: 3}
---- !u!114 &921096910609293093
+--- !u!114 &6060576594850687851
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -139,8 +139,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b642558b279cd734a88ca6ae529581d3, type: 3}
-  m_Color: {r: 0.7122642, g: 0.9288395, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: eb25ef11eae7a1a4b9a423905219bc26, type: 3}
+  m_Color: {r: 0.98729384, g: 0.759434, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

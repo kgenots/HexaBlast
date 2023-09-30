@@ -4,7 +4,7 @@ using UnityEngine;
 namespace HexaBlast
 {
    [ExecuteAlways]
-   class ColorManager : UnityCommon.MonoBehaviourSingletone<ColorManager>
+   class ColorManager : UnityCommon.MonoBehaviourSingleton<ColorManager>
    {
       [SerializeField] Token[] m_colors;
       [SerializeField] TokenStr[] m_colorStrs;

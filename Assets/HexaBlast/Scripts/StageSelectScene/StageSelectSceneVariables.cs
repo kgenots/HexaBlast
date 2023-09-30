@@ -2,7 +2,7 @@
 
 namespace HexaBlast.StageSelectScene
 {
-   class StageSelectSceneVariables : UnityCommon.MonoBehaviourSingletone<StageSelectSceneVariables>
+   class StageSelectSceneVariables : UnityCommon.MonoBehaviourSingleton<StageSelectSceneVariables>
    {
       public bool IsDragging;
       public float PopupAnimationSec = 0.3f;

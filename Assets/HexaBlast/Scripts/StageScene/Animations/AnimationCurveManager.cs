@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace HexaBlast
 {
-   class AnimationCurveManager : UnityCommon.MonoBehaviourSingletone<AnimationCurveManager>
+   class AnimationCurveManager : UnityCommon.MonoBehaviourSingleton<AnimationCurveManager>
    {
       [Serializable]
       struct CurveObeject
