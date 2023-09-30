@@ -6,15 +6,8 @@ using UnityEngine.UI;
 
 namespace HexaBlast.Scenario.StageScene
 {
-   // TODO : set Camera width addated from stage cols size, rows size
    class StartState : State
    {
-      /*
-       * 환경 초기화
-       * 그림 애니메이션
-       * 플레이 시작 (드랍 모드로)
-       * */
-
       [SerializeField] CameraSetter m_camSetter;
       [SerializeField] Graphic m_startImage;
       [SerializeField] Transform m_startImagePanel;
@@ -22,20 +15,16 @@ namespace HexaBlast.Scenario.StageScene
 
       public override void Initialize()
       {
-         // map set
          Stage.Instance.LoadStage(GlobalVariables.Instance.CurrentStage);
          BlockMap.Instance.gameObject.SetActive(false);
 
-         // camera set
          m_camSetter.FitCamera();
       }
 
       public override async void BeginState()
       {
-         // image animation
          await ShowImageAnimation(m_startImage, m_startImagePanel, ScreenPoint.RightCenter, ScreenPoint.LeftCenter);
 
-         // pupup map
          BlockMap.Instance.gameObject.SetActive(true);
          var pt0 = PopupAnimation.PopupAll(BlockMap.Instance.GetBlockEnumerable(), 0.3f);
          var pt1 = PopupAnimation.PopupAll(BlockMap.Instance.GetSocketEnumerable(), 0.5f);
@@ -61,7 +50,6 @@ namespace HexaBlast.Scenario.StageScene
          var approachAni = new Simation(beg, end, srcHolder, approachSec);
          approachAni.Start();
 
-         // wait input or dur
          await InputTool.WaitInputToClick(m_startTextureShowDur + approachSec);
          if (!approachAni.AsyncTask.IsCompleted)
             approachAni.Cancel();

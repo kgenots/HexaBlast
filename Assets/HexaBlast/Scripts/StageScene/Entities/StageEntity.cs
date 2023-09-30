@@ -4,9 +4,6 @@ using UnityEngine;
 
 namespace HexaBlast
 {
-   /// <summary>
-   /// Initial Stage Settings
-   /// </summary>
    [CreateAssetMenu(fileName = "New Stage", menuName = "Entity/Stage")]
    partial class StageEntity : ScriptableObject
    {

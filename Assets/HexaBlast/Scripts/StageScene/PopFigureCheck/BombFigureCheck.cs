@@ -3,9 +3,6 @@ using UnityEngine;
 
 namespace HexaBlast
 {
-   /// <summary>
-   /// 대각선 체크
-   /// </summary>
    class BombFigureCheck : FigureCheckBehaviour
    {
       [SerializeField] int m_minCondition = 3;
@@ -14,9 +11,6 @@ namespace HexaBlast
       // 좌상 3 좌하 3, 우상3 우하3, 좌상3 우상3, 좌하3 우하3
       public override bool Check(Block src, HashSet<Block> figures = null, List<ItemCreateInfo> items = null)
       {
-         // TODO : use DP algorithm -> performance
-         // TODO : list pool
-
          if (!src) return false;
 
          List<Block> leftUps = new List<Block>();
@@ -53,10 +47,8 @@ namespace HexaBlast
             fitListCnt += 1;
          }
 
-         // item generated
          if (fitListCnt >= 2)
          {
-            // add to set
             if (figures != null)
             {
                foreach (Block b in fits)
@@ -65,7 +57,6 @@ namespace HexaBlast
                }
             }
 
-            // add item
             if (items != null)
             {
                items.Add(new ItemCreateInfo()

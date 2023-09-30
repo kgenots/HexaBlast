@@ -31,7 +31,6 @@ namespace HexaBlast.StageSelectScene
                m_firstSpos = Input.mousePosition;
             }
 
-            // check drag start
             if (!m_dragging)
             {
                var spos = Input.mousePosition;
@@ -46,7 +45,6 @@ namespace HexaBlast.StageSelectScene
                }
             }
 
-            // drag
             if (m_dragging)
             {
                var spos = Input.mousePosition;

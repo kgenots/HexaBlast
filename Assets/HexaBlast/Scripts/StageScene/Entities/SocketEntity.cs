@@ -19,9 +19,6 @@ namespace HexaBlast
       public int HP => m_initialHp;
       public bool IsGoal => m_isGoal;
 
-      /// <summary>
-      /// 현재 위치 블럭 팝 시 영향 받음
-      /// </summary>
       public bool CanAffectedByAbove => m_canAffectedByAbove;
    }
 }

@@ -41,9 +41,6 @@ namespace HexaBlast
       {
          if (layer == ColorLayer.None)
          {
-            // 일반적으로 none은 컬러 설정이 없음을 의미하므로
-            // 여기에 도달해서는 안된다
-
             return Color.white;
          }
 

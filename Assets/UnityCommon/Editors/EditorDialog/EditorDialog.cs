@@ -29,9 +29,6 @@ namespace UnityCommon
         void Show(EditorButton submit, EditorButton cancel, params EditorButton[] buttons);
     }
 
-    /// <summary>
-    /// 서밋, 캔슬 2가지 버튼이 있는 다이얼로그 추상
-    /// </summary>
     public abstract class EditorDialog : IEditorDialog
     {
         // Defaults
@@ -263,20 +260,16 @@ namespace UnityCommon
 
             protected void OnGUI()
             {
-                // make this not reloadable
-                // cuz action is not serializable
                 if (m_isDisabled)
                 {
                     Close();
                     return;
                 }
 
-                // set position
                 if (!m_isPositionInitialized)
                 {
                     m_isPositionInitialized = true;
 
-                    // set window pos to mouse pos
                     var mousePos = GUIUtility.GUIToScreenPoint(Event.current.mousePosition);
                     mousePos.x -= position.width;
                     position = new Rect(mousePos, position.size);
@@ -284,10 +277,7 @@ namespace UnityCommon
 
                 EditorGUILayout.BeginScrollView(m_scrollPos);
 
-                // abstract panel context
                 m_dialog.OnGUIContext();
-
-                // panel button
                 m_dialog.OnGUIButtons();
 
                 EditorGUILayout.EndScrollView();
@@ -300,9 +290,6 @@ namespace UnityCommon
         }
     }
     
-    /// <summary>
-    /// Classed structure a button represent
-    /// </summary>
     public class EditorButton
     {
         public string Text;

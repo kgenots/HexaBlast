@@ -66,7 +66,6 @@ namespace HexaBlast
             int idx = (int)(m_sprites.Length * p);
             m_renderer.sprite = m_sprites[idx];
 
-            // finish
             if (!m_loop && idx == m_sprites.Length - 1)
             {
                m_running = false;

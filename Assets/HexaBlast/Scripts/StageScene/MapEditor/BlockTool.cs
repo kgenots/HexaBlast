@@ -36,7 +36,6 @@ namespace HexaBlast.MapEditor
          m_map = BlockMap.Instance;
          m_modeNames = System.Enum.GetNames(typeof(Mode));
 
-         // create table
          if (m_table == null)
          {
             m_table = new EditorTable<BlockEntity>();
@@ -79,12 +78,10 @@ namespace HexaBlast.MapEditor
       {
          m_mode = (Mode)GUILayout.Toolbar((int)m_mode, m_modeNames);
 
-         // Replace Mode
          if (m_mode == Mode.Replace)
          {
             m_table.OnGUI();
 
-            // inspect replace entity count
             int cnt = 0;
             foreach (var s in m_map.GetBlockEnumerable())
             {
@@ -97,9 +94,7 @@ namespace HexaBlast.MapEditor
             m_replaceEntity = EditorGUILayout.ObjectField(m_replaceEntity, typeof(BlockEntity), false) as BlockEntity;
 
             EditorGUILayout.LabelField("Replace Entity Count : " + cnt.ToString());
-            m_window?.Repaint(); // update window
          }
-         // Item Color Mode
          else if (m_mode == Mode.ItemColor)
          {
             m_setColor = (ColorLayer)EditorGUILayout.EnumPopup(m_setColor);
@@ -107,7 +102,6 @@ namespace HexaBlast.MapEditor
 
          GUILayout.FlexibleSpace();
 
-         // clear all
          if (GUILayout.Button("Clear All"))
          {
             for (int i = 0; i < m_map.RowSize; ++i)
@@ -126,7 +120,6 @@ namespace HexaBlast.MapEditor
          var (i, j) = m_map.WorldPosToIndex(wpos.x, wpos.y);
          if (m_map.IsIndexOutOfRange(i, j)) return;
 
-         // mouse drag or click
          var e = Event.current;
          if ((e.type == EventType.MouseDown || e.type == EventType.MouseDrag) && e.button == 0)
          {

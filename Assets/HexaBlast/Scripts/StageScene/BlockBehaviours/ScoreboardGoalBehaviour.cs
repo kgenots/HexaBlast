@@ -21,10 +21,8 @@ namespace HexaBlast
 
       public async Task StartGoalAnimationAsync()
       {
-         // decrease goal cnt
          Stage.Instance.AddRemainGoalDelta(-1, false, m_goalEntity);
 
-         // create flying
          GameObject flying = new GameObject();
          var render = flying.AddComponent<SpriteRenderer>();
          render.sprite = !m_flying ? GetComponentInChildren<SpriteRenderer>().sprite : m_flying;
@@ -32,13 +30,11 @@ namespace HexaBlast
          flying.transform.position = transform.position;
          render.color = GetComponentInChildren<SpriteRenderer>().color;
 
-         // animation
          var dst = Stage.Instance.GoalImageTransform.position;
          var curve = AnimationCurveManager.Instance.GetCurve(m_curveName);
          var sm = new Simation(transform.position, dst, flying.transform, curve, m_aniDuration);
          await sm.StartAsync();
 
-         // finalize
          Destroy(flying);
          Stage.Instance.UpdateGoalUIs();
       }

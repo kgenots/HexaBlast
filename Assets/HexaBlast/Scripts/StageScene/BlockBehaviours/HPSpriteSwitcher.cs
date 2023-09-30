@@ -37,7 +37,6 @@ namespace HexaBlast
             var step = m_steps[i];
             if (step == m_current) continue;
 
-            // switch sprite config
             if (step.Hp == hp)
             {
                m_current?.Configer.DisableConfig();

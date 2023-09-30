@@ -16,18 +16,13 @@ namespace HexaBlast.StageSelectScene
          m_textUI.text = m_stageEntity.name;
       }
 
-      /// <summary>
-      /// Click
-      /// </summary>
       public void OnMouseUp()
       {
          if (StageSelectSceneVariables.Instance.IsDragging) return;
          if (StageSelectSceneUIManager.Instance.IsUIOpend) return;
 
-         // set stage
          GlobalVariables.Instance.CurrentStage = m_stageEntity;
 
-         // active panel
          StageSelectSceneUIManager.Instance.OpenStageInfoPanel();
       }
 

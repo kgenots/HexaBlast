@@ -2,11 +2,6 @@
 
 namespace HexaBlast
 {
-   // 블록
-   // 매치블
-   // 장애물
-   // 아이템
-
    [CreateAssetMenu(fileName = "New Block", menuName = "Entity/Block")]
    class BlockEntity : ScriptableObject
    {

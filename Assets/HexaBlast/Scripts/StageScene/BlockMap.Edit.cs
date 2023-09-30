@@ -6,10 +6,6 @@ namespace HexaBlast
 {
    partial class BlockMap : MonoBehaviourSingleton<BlockMap>
    {
-      /**
-       * 에디터 전용
-       */
-
 #if UNITY_EDITOR
 
       public StageEntity Entity => m_entity;

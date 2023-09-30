@@ -10,18 +10,12 @@ using Object = UnityEngine.Object;
 
 public static class SceneViewRaycaster
 {
-   /// <summary>
-   /// SceneView.beforeSceneGui
-   /// </summary>
    public static event Action<SceneView> BeforeSceneGUI
    {
       add => SceneView.beforeSceneGui += value;
       remove => SceneView.beforeSceneGui -= value;
    }
 
-   /// <summary>
-   /// SceneView.duringSceneGui
-   /// </summary>
    public static event Action<SceneView> DuringSceneGUI
    {
       add => SceneView.duringSceneGui += value;
@@ -29,44 +23,42 @@ public static class SceneViewRaycaster
    }
 
    public static bool ScenViewMousePositionRaycast<T>(out RaycastHit hit, out T hitComponent, int layermask = ~0) where T : class
-    {
-        ScenViewMousePositionRaycast(out hit, layermask);
-        
-        hitComponent = hit.transform?.GetComponent<T>();
-
-        if (hitComponent != null)
-        {
-            return true;
-        }
-        
-        return false;
-    }
-
-    public static bool ScenViewMousePositionRaycast(out RaycastHit hit, int layermask = ~0)
-    {
-        if (Event.current == null)
-        {
-            hit = new RaycastHit();
-            return false;
-        }
-
-        var mousePos = Event.current.mousePosition;
-        var sv = SceneView.currentDrawingSceneView;
-        var ppp = EditorGUIUtility.pixelsPerPoint;
-
-        // mousePos to screenPoint
-        mousePos.y = sv.camera.pixelHeight - mousePos.y * ppp;
-        mousePos.x *= ppp;
+   {
+      ScenViewMousePositionRaycast(out hit, layermask);
       
-        // raycast
-        Ray ray = sv.camera.ScreenPointToRay(mousePos);
-        if (Physics.Raycast(ray, out hit, 10000f, layermask))
-        {
-            return true;
-        }
+      hitComponent = hit.transform?.GetComponent<T>();
 
-        return false;
-    }
+      if (hitComponent != null)
+      {
+         return true;
+      }
+      
+      return false;
+   }
+
+   public static bool ScenViewMousePositionRaycast(out RaycastHit hit, int layermask = ~0)
+   {
+      if (Event.current == null)
+      {
+         hit = new RaycastHit();
+         return false;
+      }
+
+      var mousePos = Event.current.mousePosition;
+      var sv = SceneView.currentDrawingSceneView;
+      var ppp = EditorGUIUtility.pixelsPerPoint;
+
+      mousePos.y = sv.camera.pixelHeight - mousePos.y * ppp;
+      mousePos.x *= ppp;
+   
+      Ray ray = sv.camera.ScreenPointToRay(mousePos);
+      if (Physics.Raycast(ray, out hit, 10000f, layermask))
+      {
+         return true;
+      }
+
+      return false;
+   }
 
    public static Vector3 ScreenPointToWorld(SceneView view)
    {
@@ -74,7 +66,6 @@ public static class SceneViewRaycaster
       var sv = view;
       var ppp = EditorGUIUtility.pixelsPerPoint;
       
-      // mousePos to screenPoint
       mousePos.y = sv.camera.pixelHeight - mousePos.y * ppp;
       mousePos.x *= ppp;
 
@@ -87,7 +78,6 @@ public static class SceneViewRaycaster
       catch(Exception e)
 #pragma warning restore CS0168 // e' 변수가 선언되었지만 사용되지 않았습니다.
       {
-         // ignore out of view frustrum exception
          return Vector3.zero;
       }
 

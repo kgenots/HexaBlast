@@ -4,9 +4,6 @@ using UnityEditor;
 
 using UnityEngine;
 
-/// <summary>
-/// 2021-06-08 화 오후 4:39:19, 4.0.30319.42000, YONG-PC, Yong
-/// </summary>
 namespace HexaBlast
 {
    partial class BootManager
@@ -44,7 +41,6 @@ namespace HexaBlast
          {
             var target = base.target as BootManager;
 
-            // Colume headers
             EditorGUILayout.BeginHorizontal();
             for (int i = 0; i < 3; ++i)
             {
@@ -71,7 +67,6 @@ namespace HexaBlast
 
             target.Validation();
 
-            // Rows
             foreach (var token in target.m_managers)
             {
                EditorGUILayout.BeginHorizontal();

@@ -10,7 +10,6 @@ namespace HexaBlast
       private void Reset()
       {
          m_animation = gameObject.AddComponent<Animation>();
-         //m_animation.hideFlags = HideFlags.HideInInspector;
       }
 
       private void OnValidate()

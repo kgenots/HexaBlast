@@ -1,9 +1,4 @@
-﻿//------------------------------------------------------------------------------------------------------------------
-/// <log>
-/// 2020.03.27 : 네임스페이스 변경. 주석 정리
-/// </log>
-//------------------------------------------------------------------------------------------------------------------
-using System;
+﻿using System;
 using System.Reflection;
 using UnityEngine;
 #if UNITY_EDITOR
@@ -18,7 +13,7 @@ namespace UnityCommon
         public bool IsOnIfTrue;
         public string BooleanFieldName;
 
-		public InspectorConditionAttribute(string booleanFieldName, bool isOnIfTrue = true)
+        public InspectorConditionAttribute(string booleanFieldName, bool isOnIfTrue = true)
         {
             IsOnIfTrue = isOnIfTrue;
             BooleanFieldName = booleanFieldName;
@@ -31,26 +26,18 @@ namespace UnityCommon
     {
         public bool _isConditionOK;
 
-        // 리플렉션 필드 확인
         void CheckCondition(SerializedProperty property)
         {
-            // 초기화
             var att = attribute as InspectorConditionAttribute;
             var bfName = att.BooleanFieldName;
             bool isPropertyFound = false;
             var propertySearching = property.Copy();
             var propertyBoolean = false;
 
-            // 1. 최상위 타입 루트로 이동
-            // 2. 최상위 루트부터 현재 타입까지 서치
-            // 3. 현재 타입에서 필드 서치
-
-            // 1. 최상위 타입 루트로 이동
             int length = propertySearching.propertyPath.LastIndexOf('.');
             var path = propertySearching.propertyPath.Substring(0, length);
             propertySearching.Reset();
 
-            // 2. 최상위 루트부터 현재 타입까지 서치
             while (propertySearching.NextVisible(true))
             {
                 if (propertySearching.propertyPath == path)
@@ -59,7 +46,6 @@ namespace UnityCommon
                 }
             }
 
-            // 3. 현재 타입에서 필드 서치
             while (propertySearching.NextVisible(true))
             {
                 if (propertySearching.name == bfName)
@@ -107,5 +93,5 @@ namespace UnityCommon
             }
         }
     }
-    #endif
+#endif
 }

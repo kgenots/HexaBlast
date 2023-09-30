@@ -19,7 +19,6 @@ namespace HexaBlast.StageSelectScene
 
          var stage = GlobalVariables.Instance.CurrentStage;
 
-         // set subject ui
          foreach (var g in stage.GoalEntities)
          {
             var ge = g.GoalEntity;
@@ -40,7 +39,6 @@ namespace HexaBlast.StageSelectScene
             }
          }
 
-         // set name ui
          m_stageNameText.text = "Level " + stage.name;
       }
 

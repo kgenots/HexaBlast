@@ -27,7 +27,6 @@ namespace HexaBlast
 
       void Update()
       {
-         // update stack
          while (m_stack.Count > 0)
          {
             if (m_stack.Peek().IsActive)

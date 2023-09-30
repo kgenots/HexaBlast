@@ -5,9 +5,6 @@ using UnityEditor;
 
 namespace UnityCommon
 {
-   /// <summary>
-   /// Branch execution between Runtime and Editor
-   /// </summary>
    public static class Execute
    {
 #if UNITY_EDITOR
@@ -31,7 +28,6 @@ namespace UnityCommon
 
          if (Application.isEditor)
          {
-            // todo:lazy destruction
             Object.DestroyImmediate(src);
          }
          else
@@ -72,7 +68,6 @@ namespace UnityCommon
 
          if (Application.isEditor)
          {
-            // todo:lazy destruction
             Object.DestroyImmediate(src.gameObject);
          }
          else
@@ -91,10 +86,8 @@ namespace UnityCommon
       public static void SetDirty(Object src)
       {
 #if UNITY_EDITOR
-         // make scene.unity or .asset dirty
          EditorUtility.SetDirty(src);
 
-         // additinal set dirty prefab override
          if (PrefabUtility.IsPartOfAnyPrefab(src))
          {
             PrefabUtility.RecordPrefabInstancePropertyModifications(src);

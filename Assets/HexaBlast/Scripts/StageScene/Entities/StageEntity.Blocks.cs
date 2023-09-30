@@ -7,7 +7,6 @@ namespace HexaBlast
 {
    partial class StageEntity
    {
-      // blocks
       [SerializeField] List<BlockEntity> m_blocks;
       [SerializeField] List<SocketEntity> m_sockets;
       [SerializeField] List<bool> m_socketEnables;
