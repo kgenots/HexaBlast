@@ -5,9 +5,6 @@ namespace UnityCommon
 {
    static class ListEx
    {
-      /// <summary>
-      /// Set Count to size O(n)
-      /// </summary>
       public static void SetSize<T>(this List<T> list, int size)
       {
          while (list.Count < list.Count) list.Add(default);

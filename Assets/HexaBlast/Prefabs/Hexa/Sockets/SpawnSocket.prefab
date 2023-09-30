@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 1175221075238091089}
   - component: {fileID: -3474023067473044928}
   m_Layer: 0
-  m_Name: Socket_Spawn
+  m_Name: SpawnSocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

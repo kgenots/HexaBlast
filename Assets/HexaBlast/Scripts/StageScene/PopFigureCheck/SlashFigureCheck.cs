@@ -101,7 +101,8 @@ namespace HexaBlast
          }
 
          return collect0.Count >= m_minCondition ||
-            collect1.Count >= m_minCondition;
+            collect1.Count >= m_minCondition ||
+            collect2.Count >= m_minCondition;
       }
    }
 }

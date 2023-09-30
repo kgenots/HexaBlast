@@ -6,18 +6,12 @@ using System;
 using Object = UnityEngine.Object;
 using System.Collections.Generic;
 
-/// <summary>
-/// 2020-12-22 화 오후 7:16:33, 4.0.30319.42000, YONG-PC, Yong
-/// </summary>
 namespace UnityCommon
 {
     public static class AssetDatabaseEx
     {
         public static readonly char[] PathSpliter = { System.IO.Path.AltDirectorySeparatorChar };
 
-        /// <summary>
-        /// dirPath:Assets/Dir0/Dir1
-        /// </summary>
         public static void ValidateAssetDirPath(string dirPath)
         {
             var dirs = dirPath.Split(PathSpliter, StringSplitOptions.RemoveEmptyEntries);
@@ -45,9 +39,6 @@ namespace UnityCommon
             }
         }
 
-        /// <summary>
-        /// dirPath:Assets/Dir0/Dir1/File
-        /// </summary>
         public static void ValidateAssetFilePathDir(string filePath)
         {
             var dirs = filePath.Split(PathSpliter, StringSplitOptions.RemoveEmptyEntries);
@@ -77,17 +68,11 @@ namespace UnityCommon
             }
         }
 
-        /// <summary>
-        /// dir : "Assets/.."
-        /// </summary>
         public static List<T> LoadAllAssetsAtDir<T>(params string[] dirs) where T : Object
         {
             return LoadAllAssetsAtDir(new List<T>(), dirs);
         }
 
-        /// <summary>
-        /// dir : "Assets/.."
-        /// </summary>
         public static List<T> LoadAllAssetsAtDir<T>(List<T> buffer, params string[] dirs) where T : Object
         {
             var type = typeof(T);
